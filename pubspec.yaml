@@ -1,0 +1,33 @@
+name: assentify_demo_app
+description: "A new Flutter project."
+publish_to: 'none'
+version: 0.1.0
+
+environment:
+  sdk: '>=3.3.4 <4.0.0'
+
+dependencies:
+  flutter:
+    sdk: flutter
+  flutter_svg: ^2.0.10+1
+  assentify_sdk: TAG
+  permission_handler: ^11.3.1
+  intl: ^0.18.0
+  video_player: ^2.8.6
+  chewie: ^1.1.1
+  dropdown_button2: ^2.3.9
+  http: ^1.2.2
+  syncfusion_flutter_pdfviewer: ^28.1.35
+  signature: ^5.5.0
+  path_provider: ^2.1.5
+  
+dev_dependencies:
+  flutter_test:
+    sdk: flutter
+  flutter_lints: ^3.0.0
+
+flutter:
+  uses-material-design: true
+
+  assets:
+    - assets/images/
