@@ -5,9 +5,9 @@ import 'package:flutter/material.dart';
 import 'package:permission_handler/permission_handler.dart';
 
 AssentifySdk? assentifySdk;
-const String apiKey = "7UXZBSN2CeGxamNnp9CluLJn7Bb55lJo2SjXmXqiFULyM245nZXGGQvs956Fy5a5s1KoC4aMp5RXju8w";
-const String hashKey = "E893390F6835D4E1D2F12126B7AA2B0ED996C056C8893BA267A7FE90A8452200";
-const String tenantIdentifier = "4232e33b-1a90-4b74-94a4-08dcab07bc4d";
+const String apiKey = "Your Api  Key";
+const String hashKey = "Your Flow Hash Key";
+const String tenantIdentifier = "Your Tenant Identifier";
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});
