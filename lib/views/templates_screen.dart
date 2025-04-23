@@ -5,7 +5,9 @@ import 'package:assentify_demo_app/views/splash_screen.dart';
 import 'package:assentify_sdk/assentify_sdk.dart';
 import 'package:dropdown_button2/dropdown_button2.dart';
 import 'package:flutter/material.dart';
+import 'dart:typed_data';
 
+import 'package:flutter/services.dart';
 KycEntity? kycEntity;
 
 class TemplatesScreen extends StatefulWidget {
@@ -126,26 +128,45 @@ class _TemplatesScreenState extends State<TemplatesScreen> {
                           onEvent: (String eventName,
                               PassportExtractedModel? passportDataModel) async {
                             if (eventName == EventsKeys.onComplete) {
-                              kycEntity = KycEntity(
-                                  extractedData: _transformOutputProperties(
-                                    passportDataModel!.transformedProperties,
-                                  ),
-                                  faces: passportDataModel.faces,
-                                  images: [passportDataModel.imageUrl],
-                                  outputProperties:
-                                      passportDataModel.outputProperties,
-                                  transformedProperties:
-                                      passportDataModel.transformedProperties,
-                                  percentageMatch: 0.0,
-                                  baseImageFace: "",
-                                  secondImageFace: "",
-                                  isLive: false,
-                                  nationality: passportDataModel
-                                      .identificationDocumentCapture.nationality
-                                      .toString());
-                              _navigateToIdVerificationScreen(
-                                kycEntity: kycEntity!,
-                              );
+
+                              if (eventName == EventsKeys.onComplete) {
+                                final ByteData data = await rootBundle.load("assets/images/nfc_image.png");
+                                final Uint8List bytes = data.buffer.asUint8List();
+                                assentifySdk!.startNfc(
+                                    image: bytes,
+                                    backGroundColor: "#FFFFFF",
+                                    textColor: "#000000",
+                                    title: "NFC DETECTED",
+                                    subTitle: "Position the passport or ID on the bottom of the phone where the NFC chip reader is and ensure that you have the passport or ID close enough for detection and reading.",
+                                    backIconColor: "#000000",
+                                    backIconBackGroundColor: "#FFFFFF",
+                                    progressBarColor: "#F5A103",
+                                    onEvent: (String eventName,
+                                        PassportExtractedModel? dataModel) {
+                                      kycEntity = KycEntity(
+                                          extractedData: _transformOutputProperties(
+                                            dataModel!.transformedProperties,
+                                          ),
+                                          faces: dataModel.faces,
+                                          images: [dataModel.imageUrl],
+                                          outputProperties:
+                                          dataModel.outputProperties,
+                                          transformedProperties:
+                                          dataModel.transformedProperties,
+                                          percentageMatch: 0.0,
+                                          baseImageFace: "",
+                                          secondImageFace: "",
+                                          isLive: false,
+                                          nationality: dataModel
+                                              .identificationDocumentCapture.nationality
+                                              .toString());
+                                      _navigateToIdVerificationScreen(
+                                        kycEntity: kycEntity!,
+                                      );
+                                    });
+                              }
+
+
                             }
                           });
                     },
