@@ -11,9 +11,9 @@ dependencies:
     sdk: flutter
   flutter_svg: ^2.0.10+1
   assentify_sdk: TAG
-  permission_handler: ^11.3.1
+  permission_handler: ^12.0.0+1
   intl: ^0.18.0
-  video_player: ^2.8.6
+  #video_player: ^2.9.5
   chewie: ^1.1.1
   dropdown_button2: ^2.3.9
   http: ^1.2.2
