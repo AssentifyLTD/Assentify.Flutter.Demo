@@ -21,10 +21,10 @@ packages:
     dependency: "direct main"
     description:
       name: assentify_sdk
-      sha256: "92f75ae9089abf24779783b576b0d43adb13ac222970188af8e4157742e4944a"
+      sha256: cf8a67455b59766b8779b189eef5a48f68cbdd68ab53d5715a8731ad781be337
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.54"
+    version: "0.0.72"
   async:
     dependency: transitive
     description:

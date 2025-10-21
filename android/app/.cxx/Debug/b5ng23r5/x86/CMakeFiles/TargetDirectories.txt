@@ -1,0 +1,2 @@
+C:/Users/User/Desktop/SDK/Doc/Flutter/Assentify.Flutter.Demo/assentify_demo_app/android/app/.cxx/Debug/b5ng23r5/x86/CMakeFiles/edit_cache.dir
+C:/Users/User/Desktop/SDK/Doc/Flutter/Assentify.Flutter.Demo/assentify_demo_app/android/app/.cxx/Debug/b5ng23r5/x86/CMakeFiles/rebuild_cache.dir

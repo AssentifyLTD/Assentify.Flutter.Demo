@@ -124,15 +124,17 @@ class _TemplatesScreenState extends State<TemplatesScreen> {
                     isPassport: true,
                     onTap: () {
                       assentifySdk!.startScanPassport(
+                          stepID: -1, // Need to by set from the flow
                           language: Language.english,
                           onEvent: (String eventName,
-                              PassportExtractedModel? passportDataModel) async {
+                              PassportExtractedModel? passportDataModel,DoneFlags? doneFlag,) async {
                             if (eventName == EventsKeys.onComplete) {
 
                               if (eventName == EventsKeys.onComplete) {
                                 final ByteData data = await rootBundle.load("assets/images/nfc_image.png");
                                 final Uint8List bytes = data.buffer.asUint8List();
                                 assentifySdk!.startNfc(
+                                    stepID: -1, // Need to by set from the flow
                                     image: bytes,
                                     backGroundColor: "#FFFFFF",
                                     textColor: "#000000",
@@ -176,9 +178,10 @@ class _TemplatesScreenState extends State<TemplatesScreen> {
                     isPassport: false,
                     onTap: () {
                       assentifySdk!.startScanOther(
+                          stepID: -1, // Need to by set from the flow
                           language: Language.english,
                           onEvent: (String eventName,
-                              OtherExtractedModel? otherExtractedModel) async {
+                              OtherExtractedModel? otherExtractedModel ,   DoneFlags? doneFlag,) async {
                             if (eventName == EventsKeys.onComplete) {
                               kycEntity = KycEntity(
                                   extractedData: _transformOutputProperties(
@@ -220,6 +223,7 @@ class _TemplatesScreenState extends State<TemplatesScreen> {
                       child: TemplateItem(
                         onTap: () {
                           assentifySdk!.startScanID(
+                              stepID: -1, // Need to by set from the flow
                               language: Language.english,
                               templates: selectedCountry!
                                   .templates[index].kycDocumentDetails,
@@ -228,6 +232,7 @@ class _TemplatesScreenState extends State<TemplatesScreen> {
                                 String eventName,
                                 IDExtractedModel? idDataModel,
                                 int order,
+                               DoneFlags? doneFlag,
                               ) {
                                 if (eventName == EventsKeys.onComplete) {
                                   if (order ==

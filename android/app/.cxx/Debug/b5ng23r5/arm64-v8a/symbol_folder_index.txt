@@ -1,0 +1,1 @@
+C:\Users\User\Desktop\SDK\Doc\Flutter\Assentify.Flutter.Demo\assentify_demo_app\build\app\intermediates\cxx\Debug\b5ng23r5\obj\arm64-v8a
