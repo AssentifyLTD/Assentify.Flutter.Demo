@@ -185,11 +185,13 @@ class _IdVerificationScreenState extends State<IdVerificationScreen> {
                                   kycEntity!.images[0], apiKey)
                               .then((cardImage) => {
                                     assentifySdk!.startFaceMatch(
+                                        stepID: -1, // Need to by set from the flow
                                         image: cardImage,
                                         onEvent: (
                                           String eventName,
                                           FaceExtractedModel?
                                               faceExtractedModel,
+                                            DoneFlags? doneFlag,
                                         ) async {
                                           if (eventName ==
                                               EventsKeys.onComplete) {
