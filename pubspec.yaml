@@ -10,7 +10,7 @@ dependencies:
   flutter:
     sdk: flutter
   flutter_svg: ^2.0.10+1
-  assentify_sdk: 0.0.72
+  assentify_sdk: TAG
   permission_handler: ^12.0.0+1
   intl: ^0.18.0
   #video_player: ^2.9.5
